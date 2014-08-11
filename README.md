@@ -1,25 +1,24 @@
-# An AngularJS module adapting underscore
+# An AngularJS module adapting Ramda
 
-This module exposes underscore's API into angular app's root scope,
+This module exposes Ramda's API into angular app's root scope,
 and provides some filters from underscore.
 
 
 ## Filters
 
-Whole Underscore's API for Collections, Arrays and Objects except decision API
-(e.g. functions return true|false), side effect guys, and _.range(not making sense as a filter).
+Whole Ramda's API for Functions, Arrays and Objects.
 
 
-For API details please check out http://underscorejs.org/
+For API details please check out http://ramdajs.com/
 
 ## How to use
 
 ### Install
 
-After load angular.js and underscore.js:
+After loading angular.js and ramda.js:
 
 ```html
-<script type="text/javascript" src="angular-underscore.js"></script>
+<script type="text/javascript" src="ramdangular.js"></script>
 ```
 
 ### Load angular-underscore
@@ -27,33 +26,33 @@ After load angular.js and underscore.js:
 #### Load whole stuff
 
 ```javascript
-angular.module('yourAwesomeApp', ['angular-underscore']);
+angular.module('yourAwesomeApp', ['ramdangular']);
 ```
 
 #### Load API only
 
 ```javascript
-angular.module('yourAwesomeApp', ['angular-underscore/utils']);
+angular.module('yourAwesomeApp', ['ramdangular/utils']);
 ```
 
 #### Load filters only
 
 ```javascript
-angular.module('yourAwesomeApp', ['angular-underscore/filters']);
+angular.module('yourAwesomeApp', ['ramdangular/filters']);
 ```
 
 #### Load specific feature only
 
 ```javascript
 // load `shuffle` only
-angular.module('yourAwesomeApp', ['angular-underscore/filters/shuffle']);
+angular.module('yourAwesomeApp', ['ramdangular/filters/shuffle']);
 ```
 
 ### Usecase
 
 ```html
 <script type="text/javascript">
-  angular.module('example', ['angular-underscore']);
+  angular.module('example', ['ramdangular']);
 </script>
 
 <body ng-app="example">
@@ -66,7 +65,7 @@ angular.module('yourAwesomeApp', ['angular-underscore/filters/shuffle']);
 
 ```
 $ npm install uglify-js -g
-$ uglifyjs angular-underscore.js > angular-underscore.min.js
+$ uglifyjs ramdangular.js > ramdangular.min.js
 ```
 
 ## License
@@ -74,6 +73,7 @@ $ uglifyjs angular-underscore.js > angular-underscore.min.js
 (The MIT License)
 
 Copyright (c) 2014 <floydsoft@gmail.com>
+Copyright (c) 2014 <mh@buzzdecafe.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
