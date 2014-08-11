@@ -1,7 +1,7 @@
 # An AngularJS module adapting Ramda
 
 This module exposes Ramda's API into angular app's root scope,
-and provides some filters from underscore.
+and provides some filters from Ramda.
 
 
 ## Filters
@@ -21,7 +21,7 @@ After loading angular.js and ramda.js:
 <script type="text/javascript" src="ramdangular.js"></script>
 ```
 
-### Load angular-underscore
+### Load ramdangular
 
 #### Load whole stuff
 
