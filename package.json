@@ -1,7 +1,7 @@
 {
   "name": "ramangular",
   "description": "Ramda adapter for AngularJS.",
-  "version": "0.4.0",
+  "version": "0.0.1",
   "author": "buzzdecafe <mh@buzzdecafe.com>",
   "main": "ramdangular.js",
   "repository": {
