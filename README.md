@@ -4,13 +4,6 @@ This module exposes Ramda's API into angular app's root scope,
 and provides some filters from Ramda.
 
 
-## Filters
-
-Whole Ramda's API for Functions, Arrays and Objects.
-
-
-For API details please check out http://ramdajs.com/
-
 ## How to use
 
 ### Install
@@ -23,29 +16,8 @@ After loading angular.js and ramda.js:
 
 ### Load ramdangular
 
-#### Load whole stuff
-
 ```javascript
 angular.module('yourAwesomeApp', ['ramdangular']);
-```
-
-#### Load API only
-
-```javascript
-angular.module('yourAwesomeApp', ['ramdangular/utils']);
-```
-
-#### Load filters only
-
-```javascript
-angular.module('yourAwesomeApp', ['ramdangular/filters']);
-```
-
-#### Load specific feature only
-
-```javascript
-// load `shuffle` only
-angular.module('yourAwesomeApp', ['ramdangular/filters/shuffle']);
 ```
 
 ### Usecase
@@ -56,8 +28,7 @@ angular.module('yourAwesomeApp', ['ramdangular/filters/shuffle']);
 </script>
 
 <body ng-app="example">
-  <!-- generate 10 unduplicated random number from 0 to 9 -->
-  <div ng-repeat="num in range(10)|shuffle">{{num}}</div>
+  <div ng-repeat="num in range(11, 20) | shuffle">{{num}}</div>
 </body>
 ```
 
