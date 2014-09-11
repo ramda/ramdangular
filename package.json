@@ -2,7 +2,7 @@
     "name": "ramangular",
     "description": "Ramda adapter for AngularJS.",
     "version": "0.0.1",
-    "author": "buzzdecafe <mh@buzzdecafe.com>",
+    "author": "Prathamesh Satpute <prathamesh.satpute@gmail.com>",
     "main": "ramdangular.js",
     "repository": {
         "type": "git",
