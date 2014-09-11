@@ -1,6 +1,11 @@
-describe('ramdangular API', function () {
+var angular = require('angular'),
+    ramda = require('ramda'),
+    should = require('should');
 
-    //beforeEach(module('ramdangular'));
+describe('ramdangular util tests', function () {
+
+    beforeEach(module('ramdangular'));
+
 
     ramda.forEach(function (fnName) {
 
