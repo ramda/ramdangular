@@ -3,6 +3,11 @@
     "description": "Ramda adapter for AngularJS.",
     "version": "0.0.1",
     "author": "Prathamesh Satpute <prathamesh.satpute@gmail.com>",
+    "contributors": {
+        "name": "buzzdecafe",
+        "emal": "mh@buzzdecafe.com",
+        "web":"http://buzzdecafe.com"
+    },
     "main": "ramdangular.js",
     "repository": {
         "type": "git",
