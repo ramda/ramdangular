@@ -9,7 +9,7 @@
         "url": "https://github.com/ramda/ramdangular"
     },
     "scripts": {
-    "test": "gulp test --verbose"
+        "test": "gulp test --verbose"
     },
     "devDependencies": {
         "gulp": "3.8.x",
