@@ -1,67 +1,49 @@
 var gulp = require('gulp');
-
-var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
 var header = require('gulp-header');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var mocha = require('gulp-mocha');
+var karma = require('gulp-karma');
 var moment = require('moment');
-var istanbul = require('gulp-istanbul');
 var lib = 'ramdangular.js';
 
 var pkg = require('./package.json');
 
-var hintConfig = {
-
-};
-
-gulp.task('clean', function() {
-    gulp.src('./dist')
-        .pipe(clean());
-});
-
-gulp.task('hint', function() {
+gulp.task('hint', function () {
     gulp.src(lib)
-        .pipe(jshint(hintConfig))
+        .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('min', function() {
+gulp.task('min', function () {
     var banner = '/*! <%= pkg.name %> <%= pkg.version %>: ' + moment().format('YYYY-MM-DD') + ' */\n';
     gulp.src(lib)
         .pipe(uglify())
         .pipe(header(banner, {pkg: pkg}))
         .pipe(rename('ramdangular.min.js'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./'));
 });
 
-gulp.task('cover', function(cb) {
-    gulp.src(lib)
-        .pipe(istanbul())
-        .on('end', cb);
+// Karma
+gulp.task('karma', function () {
+    return gulp.src([
+        'node_modules/angular/lib/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'node_modules/ramda/ramda.js',
+        'ramdangular.js',
+        'test/**/*.js'
+    ])
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }))
+        .on('error', function (err) {
+            throw err;
+        });
 });
 
-gulp.task('test', function() {
-    gulp.run('hint');
-    gulp.src('test/**/*.js')
-        .pipe(mocha({reporter: 'spec'}));
-});
 
-// Run tests and output reports
-gulp.task('test2', function() {
-    gulp.run('cover', function() {
-        gulp.src('test/*.js')
-            .pipe(mocha({reporter: 'spec'})) // Run any unit test frameworks here
-            .pipe(istanbul.writeReports());
-    });
-});
-
-gulp.task('default', function() {
-    gulp.run('hint', 'min');
-
-    // Watch For Changes To Our JS
-    gulp.watch(lib, function() {
-        gulp.run('hint', 'min');
-    });
+gulp.task('default', function () {
+    //ramdangular.js change
+    gulp.watch(lib, ['hint', 'min']);
 });
