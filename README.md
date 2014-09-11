@@ -3,6 +3,7 @@
 This module exposes Ramda's API into angular app's root scope,
 and provides some filters from Ramda.
 
+[![Build Status](https://api.travis-ci.org/ramda/ramdangular.svg?branch=master)](https://travis-ci.org/ramda/ramdangular)
 
 ## How to use
 
