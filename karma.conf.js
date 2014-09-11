@@ -2,24 +2,30 @@ module.exports = function (config) {
 
     config.set({
 
-        basePath : './',
+        basePath: './',
 
-        autoWatch : true,
+        reporters: ['dots', 'coverage'],
+
+        preprocessors: {
+            'ramdangular.js': ['coverage']
+        },
+
+        autoWatch: true,
 
         frameworks: ['jasmine'],
 
-        browsers : ['PhantomJS'],
+        browsers: ['PhantomJS'],
 
-        plugins : [
+        plugins: [
             'karma-chrome-launcher',
             'karma-phantomjs-launcher',
             'karma-jasmine',
-            'karma-junit-reporter'
+            'karma-coverage'
         ],
 
-        junitReporter : {
-            outputFile: 'test_out/unit.xml',
-            suite: 'unit'
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/'
         }
 
     });

@@ -4,3 +4,4 @@ angular-underscore.sublime-project
 angular-underscore.sublime-workspace
 dist
 .idea
+coverage
