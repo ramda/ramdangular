@@ -1,4 +1,5 @@
-# An AngularJS module adapting Ramda [Demo](https://rawgit.com/ramda/ramdangular/master/examples/index.html)
+# An AngularJS module adapting Ramda 
+[Demo](https://rawgit.com/ramda/ramdangular/master/examples/index.html)
 
 This module exposes Ramda's API into angular app's root scope,
 and provides some filters from Ramda.
