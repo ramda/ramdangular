@@ -30,6 +30,7 @@ gulp.task('test', function () {
         'node_modules/angular/lib/angular.js',
         'node_modules/angular-mocks/angular-mocks.js',
         'node_modules/ramda/ramda.js',
+        'support/phantom.polyfill.js',
         'ramdangular.js',
         'test/**/*.js'
     ])
