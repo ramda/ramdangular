@@ -25,7 +25,7 @@ gulp.task('min', function () {
 });
 
 // Karma
-gulp.task('test', function () {
+gulp.task('karma', function () {
     return gulp.src([
         'node_modules/angular/lib/angular.js',
         'node_modules/angular-mocks/angular-mocks.js',
@@ -47,3 +47,5 @@ gulp.task('default', function () {
     //ramdangular.js change
     gulp.watch(lib, ['hint', 'min']);
 });
+
+gulp.task('test', ['hint', 'karma']);
