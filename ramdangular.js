@@ -5,8 +5,8 @@
         utilsModule = angular.module('ramdangular/utils', []),
         filtersModule = angular.module('ramdangular/filters', []);
 
-    var bind = function (func) {
-        return Function.prototype.bind.apply(func, Array.prototype.slice.call(arguments, 1));
+    var bind = function (func, thisArg) {
+        return func.bind(thisArg);
     };
 
     //register utils
@@ -30,35 +30,24 @@
 
 
     var adaptRamdaFilters = [
-        'add',
-        'min',
-        'max',
+        'map',
         'multiply'
     ];
 
     //register filters
-    R.forEach(function (filterNames) {
+    R.forEach(function (filterName) {
+        var modules = [
+            ramdangularModule,
+            filtersModule,
+            angular.module('ramdangular/filters/' + filterName, [])
+        ];
 
-        if (!(Array.isArray(filterNames))) {
-            filterNames = [filterNames];
-        }
+        R.forEach(function (module) {
+            module.filter(filterName, function() {
+                return R[filterName];
+            });
+        }, modules);
 
-        var filter = bind(R[filterNames[0]], R),
-            filterFactory = function () {
-                return filter;
-            };
-
-        R.forEach(function (filterName) {
-
-            R.forEach(function (module) {
-                module.filter(filterName, filterFactory);
-            }, [
-                ramdangularModule,
-                filtersModule,
-                angular.module('ramdangular/filters/' + filterName, [])
-            ]);
-
-        }, filterNames);
 
     }, adaptRamdaFilters);
 
