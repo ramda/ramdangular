@@ -24,6 +24,11 @@
       <p><code ng-non-bindable>&lt;div ng-repeat="num in range(2, 10)"&gt;{{num | multiply : 100}}&lt;/div&gt;</code></p>
       <div ng-repeat="num in range(2, 10)">{{num | multiply : 100 }}</div>
     </div>
+    <div>
+      <h3>Map</h3>
+      <p><code ng-non-bindable>&lt;div ng-repeat="value in map(toUpperCase, split('', 'chars'))"&gt;{{value}}&lt;/div&gt;</code></p>
+      <div ng-repeat="value in map(toUpperCase, split('', 'chars'))">{{value}}</div>
+    </div>
 </body>
 
 </html>
