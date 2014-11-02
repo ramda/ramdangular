@@ -28,7 +28,7 @@
         "gulp-concat": "2.4.0",
         "angular": "1.2.23",
         "angular-mocks": "1.2.22",
-        "ramda": "0.4.3",
+        "ramda": "^0.7.2",
         "karma": "0.12.23",
         "karma-jasmine": "0.1.5",
         "karma-coverage": "0.2.6",

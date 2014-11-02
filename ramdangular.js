@@ -5,34 +5,26 @@
         utilsModule = angular.module('ramdangular/utils', []),
         filtersModule = angular.module('ramdangular/filters', []);
 
-    var bind = function (func, thisArg) {
-        return func.bind(thisArg);
-    };
+    var rfns = R.functionsIn(R);
 
     //register utils
     R.forEach(function (functionName) {
 
         //register functions
         function register($rootScope) {
-            $rootScope[functionName] = bind(R[functionName], R);
+            $rootScope[functionName] = R.bind(R[functionName], R);
         }
 
         R.forEach(function (module) {
-                module.run(['$rootScope', register]);
-            }, [
-                ramdangularModule,
-                utilsModule,
-                angular.module('ramdangular/utils/' + functionName, [])
-            ]
-        );
+            module.run(['$rootScope', register]);
+        }, [
+            ramdangularModule,
+            utilsModule,
+            angular.module('ramdangular/utils/' + functionName, [])
+        ]);
 
-    }, R.functionsIn(R));
+    }, rfns);
 
-
-    var adaptRamdaFilters = [
-        'map',
-        'multiply'
-    ];
 
     //register filters
     R.forEach(function (filterName) {
@@ -49,7 +41,7 @@
         }, modules);
 
 
-    }, adaptRamdaFilters);
+    }, rfns);
 
 
 }(angular, ramda));
