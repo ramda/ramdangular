@@ -44,4 +44,4 @@
     }, rfns);
 
 
-}(angular, ramda));
+}(angular, R));
